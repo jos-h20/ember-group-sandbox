@@ -1,0 +1,13 @@
+{{weather-icon place}}
+
+<h1>{{place.name}}</h1>
+
+<h2>{{temp-convert place.weather.main.temp}}</h2>
+
+{{place.hikeDistance}}
+{{log place.hikeDistance}}
+
+{{hike-modal place=place index=index}}
+
+sortBy: ['hikeDistance:asc'],
+sortedHikes: Ember.computed.sort('place.name', 'sortBy'),

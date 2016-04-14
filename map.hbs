@@ -1,0 +1,34 @@
+
+
+
+<form>
+  <div class="form-group">
+    <label for="latitude">Latitude</label>
+    {{input value=latitude id="latitude"}}
+  </div>
+
+  <div class="form-group">
+    <label for="longitude">Longitude</label>
+    {{input value=longitude id="longitude"}}
+  </div>
+
+<button {{action 'lookup'}}>Look up</button>
+</form>
+
+<!-- {{#g-map lat=lat lng=long zoom=8 as |context|}}
+  {{#g-map-marker context group="trailhead" lat=lat lng=long as |markerContext|}}
+    {{#g-map-infowindow markerContext}}
+      <h2><a href="https://maps.google.com?saddr=Current+Location&daddr={{lat}},{{long}}">Trailhead of Joy and Wonder</a></h2>
+    {{/g-map-infowindow}}
+  {{/g-map-marker}}
+{{/g-map}} -->
+
+{{#g-map lat=lat lng=long zoom=12 as |context|}}
+  {{#g-map-marker context lat=lat lng=long as |markerContext|}}
+    {{#g-map-infowindow markerContext openOn="mouseover"}}
+      <h2><a href="https://maps.google.com?saddr=Current+Location&daddr={{lat}},{{long}}"> Directions to Trailhead of Joy and Wonder</a></h2>
+    {{/g-map-infowindow}}
+  {{/g-map-marker}}
+
+{{/g-map}}
+{{lat}}
